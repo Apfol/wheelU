@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<filter>
+		<filter-name>guiceFilter</filter-name>
+		<filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+	</filter>
+
+	<!-- URL Pattern /_ah/api/* instead of /* because a legacy v1 servlet uses 
+		the route /_ah/api/ and using /* will erronously use the legacy v1 servlet 
+		instead of routing to your API. -->
+	<filter-mapping>
+		<filter-name>guiceFilter</filter-name>
+		<url-pattern>/_ah/api/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>com.example.echo.EchoGuiceListener</listener-class>
+	</listener>
+	<servlet>
+		<!-- Uncomment to use Endpoints Frameworks v1.0 and comment the v2.0 section -->
+		<!-- <servlet-name>SystemServiceServlet</servlet-name> <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class> -->
+		<!-- End of Endpoints Frameworks v1.0 -->
+		<!-- Endpoints Frameworks v2.0 -->
+		<servlet-name>EndpointsServlet</servlet-name>
+		<servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
+		<!-- End of Endpoints Frameworks v2.0 -->
+		<init-param>
+			<param-name>services</param-name>
+			<param-value>com.reservas.wheelU.YourFirstAPI</param-value>
+		</init-param>
+		<init-param>
+			<param-name>restricted</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<!-- Uncomment to use Endpoints Frameworks v1.0 and comment the v2.0 section -->
+		<!-- <servlet-name>SystemServiceServlet</servlet-name> <url-pattern>/_ah/spi/*</url-pattern> -->
+		<!-- End of Endpoints Frameworks v1.0 -->
+		<!-- Endpoints Frameworks v2.0 -->
+		<servlet-name>EndpointsServlet</servlet-name>
+		<url-pattern>/_ah/api/*</url-pattern>
+		<!-- End of Endpoints Frameworks v2.0 -->
+	</servlet-mapping>
+</web-app>
