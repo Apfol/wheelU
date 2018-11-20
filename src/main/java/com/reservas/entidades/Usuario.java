@@ -2,8 +2,10 @@ package com.reservas.entidades;
 
 import java.util.ArrayList;
 
+import com.reservas.flyweight.IUsuario;
 
-public abstract class Usuario {
+
+public abstract class Usuario implements IUsuario{
 
     private String nombre;
     private String correo;
