@@ -1,4 +1,4 @@
-package com.reservas.wheelU;
+package com.reservas.entidades;
 
 public class Reserva {
 	
