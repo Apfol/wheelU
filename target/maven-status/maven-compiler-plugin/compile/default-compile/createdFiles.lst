@@ -1,4 +1,12 @@
-com\reservas\wheelU\Reserva.class
+com\reservas\entidades\Pasajero.class
+com\reservas\entidades\Conductor.class
+com\reservas\entidades\Reserva.class
+com\reservas\flyweight\IUsuario.class
 com\reservas\wheelU\API.class
 com\reservas\wheelU\EchoEndpointModule.class
 com\reservas\wheelU\EchoGuiceListener.class
+com\reservas\facade\Facade.class
+com\reservas\flyweight\Factory.class
+com\reservas\proxy\IProxy.class
+com\reservas\proxy\Proxy.class
+com\reservas\entidades\Usuario.class

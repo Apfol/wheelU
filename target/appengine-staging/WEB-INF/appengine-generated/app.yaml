@@ -1,4 +1,4 @@
-runtime: java7
+runtime: java8
 inbound_services:
 - warmup
 derived_file_type:

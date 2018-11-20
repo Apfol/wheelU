@@ -47,12 +47,12 @@ appengine {  // App Engine tasks configuration
 
 endpointsServer {
   // Endpoints Framework Plugin server-side configuration
-  hostname = "wheel-u.appspot.com"
+  hostname = "wheel-u-reservas.appspot.com"
   serviceClasses = ['com.reservas.wheelU.API']
 }
 
 group   = 'com.reservas.wheelU' // Generated output GroupId
 version = '1'          // Version in generated output
 
-sourceCompatibility = 1.7     // App Engine Standard uses Java 7
-targetCompatibility = 1.7     // App Engine Standard uses Java 7
+sourceCompatibility = 1.8     // App Engine Standard uses Java 7
+targetCompatibility = 1.8     // App Engine Standard uses Java 7

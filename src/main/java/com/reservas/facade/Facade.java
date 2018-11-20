@@ -2,7 +2,7 @@ package com.reservas.facade;
 
 import com.reservas.proxy.IProxy;
 
-public class Facade implements IProxy{
+public class Facade implements IProxy {
 
 	@Override
 	public void crearPasajero(String nombre, String correo, String contrasena, String edad, String tipo) {

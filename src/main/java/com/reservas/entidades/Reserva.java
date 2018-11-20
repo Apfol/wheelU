@@ -7,7 +7,6 @@ public class Reserva {
 	private int documentosPasajero;
 	
 	public Reserva(String nombreReserva, int iDRutaReservada, int documentosPasajero) {
-		super();
 		this.nombreReserva = nombreReserva;
 		IDRutaReservada = iDRutaReservada;
 		this.documentosPasajero = documentosPasajero;

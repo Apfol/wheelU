@@ -20,8 +20,8 @@ public class EchoEndpointModule extends EndpointsModule {
 	    filter("/_ah/api/*").through(ServiceManagementConfigFilter.class);
 
 	    Map<String, String> apiController = new HashMap<String, String>();
-	    apiController.put("endpoints.projectId", "YOUR-PROJECT-ID");
-	    apiController.put("endpoints.serviceName", "YOUR-PROJECT-ID.appspot.com");
+	    apiController.put("endpoints.projectId", "wheel-u-reservas");
+	    apiController.put("endpoints.serviceName", "wheel-u-reservas.appspot.com");
 
 	    bind(GoogleAppEngineControlFilter.class).in(Singleton.class);
 	    filter("/_ah/api/*").through(GoogleAppEngineControlFilter.class, apiController);
