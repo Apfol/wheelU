@@ -5,8 +5,12 @@ import java.util.ArrayList;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.google.api.server.spi.config.Named;
 import com.reservas.entidades.Reserva;
+import com.reservas.entidades.Usuario;
 import com.reservas.facade.Facade;
+import com.reservas.proxy.Aleatorio;
+import com.reservas.proxy.Proxy;
 
 /**
   * Add your first API methods in this class, or you may create another class. In that case, please
@@ -17,25 +21,33 @@ public class YourFirstAPI {
 	
 	
 	Facade facade = Facade.getInstance();
+	Proxy proxy = Proxy.getInstance();
 	
-	public static ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 	
-	@ApiMethod(name = "devolverReservas")
+	@ApiMethod(name = "obtenerReservas")
 	public ArrayList<Reserva> reservas() {
-		return reservas;
+		return facade.getReservas();
 	}
 	
-	@ApiMethod(name= "Quemar usuarios")
+	@ApiMethod(name = "obtenerUsuarios")
+	public ArrayList<Usuario> obtenerUsuarios() {
+		return facade.getUsuarios();
+	}
+	
+	@ApiMethod(name= "quemarUsuarios")
 	public void usuariosDummy() {
 		facade.usuariosDummy();
 	}
 	
-	
+	@ApiMethod(name = "quemarReservas")
 	public void reservasDummy() {
-		
-		//ArrayList<Reserva> reservas = new ArrayList<>();
-		
-		reservas.add(new Reserva("Reserva1", 2, 1073525507));
+		facade.reservasDummy();
+	}
+	
+	@ApiMethod(name = "iniciarSesion")
+	public Aleatorio login(@Named("Correo") String correo, @Named("Password") String password) {
+		Proxy proxy = Proxy.getInstance();
+		return proxy.iniciarSesion(correo, password);
 	}
 	
 }
