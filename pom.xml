@@ -75,7 +75,7 @@
 					<version>1.0.0</version>
 					<configuration>
 						<!-- plugin configuration -->
-						<hostname>wheel-u.appspot.com</hostname>
+						<hostname>wheel-u-reservas.appspot.com</hostname>
 					</configuration>
 				</plugin>
 				<plugin>

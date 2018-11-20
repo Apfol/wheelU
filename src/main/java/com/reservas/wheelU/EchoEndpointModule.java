@@ -26,8 +26,8 @@ public class EchoEndpointModule extends EndpointsModule {
 	    bind(GoogleAppEngineControlFilter.class).in(Singleton.class);
 	    filter("/_ah/api/*").through(GoogleAppEngineControlFilter.class, apiController);
 
-	    bind(API.class).toInstance(new API());
-	    configureEndpoints("/_ah/api/*", ImmutableList.of(API.class));
+	    bind(YourFirstAPI.class).toInstance(new YourFirstAPI());
+	    configureEndpoints("/_ah/api/*", ImmutableList.of(YourFirstAPI.class));
 	  }
 
 }
