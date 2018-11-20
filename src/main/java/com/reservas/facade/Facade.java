@@ -82,5 +82,15 @@ public class Facade implements IProxy {
 			return false;
 		}
 	}
+
+	public ArrayList<Reserva> consultarReservas(String documentoPasajero) {
+		ArrayList<Reserva> reservasPasajero = new ArrayList<>();
+		for(Reserva reserva: reservas) {
+			if(documentoPasajero.equals(reserva.getDocumentoPasajero())) {
+				reservasPasajero.add(reserva);
+			}
+		}
+		return reservasPasajero;
+	}
 	
 }

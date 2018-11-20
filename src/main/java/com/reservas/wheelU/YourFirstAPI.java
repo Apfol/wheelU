@@ -59,7 +59,26 @@ public class YourFirstAPI {
 		if (!facade.isSesion(aleatorio, documentoPasajero)) {
 			throw new UnauthorizedException("Invalid credentials");
 		}
-		return facade.modificarReserva(nombreReserva, IDRutaReservada, documentoPasajero);
+		
+		Reserva reservaModificada = facade.modificarReserva(nombreReserva, IDRutaReservada, documentoPasajero);
+		
+		if (reservaModificada == null) {
+			throw new UnauthorizedException("Reserva no encontrada");
+		}
+		
+		return reservaModificada;
+	}
+	
+	@ApiMethod(name = "ConsultarReservas")
+	public ArrayList<Reserva> consultarReservas(@Named("DocumentoPasajero") String documentoPasajero, Aleatorio aleatorio) throws UnauthorizedException {
+		if (!facade.isSesion(aleatorio, documentoPasajero)) {
+			throw new UnauthorizedException("Invalid credentials");
+		}
+		ArrayList<Reserva> reservasPasajero = facade.consultarReservas(documentoPasajero);
+		if (reservasPasajero.isEmpty()) {
+			throw new UnauthorizedException("Reservas no encontradas");
+		}
+		return reservasPasajero;
 	}
 
 }
