@@ -4,36 +4,31 @@ public class Reserva {
 	
 	private String nombreReserva;
 	private int IDRutaReservada;
-	private int documentosPasajero;
+	private String documentoPasajero;
 	
-	public Reserva(String nombreReserva, int iDRutaReservada, int documentosPasajero) {
+	public Reserva(String nombreReserva, int iDRutaReservada, String documentoPasajero) {
+		super();
 		this.nombreReserva = nombreReserva;
 		IDRutaReservada = iDRutaReservada;
-		this.documentosPasajero = documentosPasajero;
+		this.documentoPasajero = documentoPasajero;
 	}
-
 	public String getNombreReserva() {
 		return nombreReserva;
 	}
-
 	public void setNombreReserva(String nombreReserva) {
 		this.nombreReserva = nombreReserva;
 	}
-
 	public int getIDRutaReservada() {
 		return IDRutaReservada;
 	}
-
 	public void setIDRutaReservada(int iDRutaReservada) {
 		IDRutaReservada = iDRutaReservada;
 	}
-
-	public int getDocumentosPasajero() {
-		return documentosPasajero;
+	public String getDocumentoPasajero() {
+		return documentoPasajero;
 	}
-
-	public void setDocumentosPasajero(int documentosPasajero) {
-		this.documentosPasajero = documentosPasajero;
+	public void setDocumentoPasajero(String documentoPasajero) {
+		this.documentoPasajero = documentoPasajero;
 	}
 	
 }

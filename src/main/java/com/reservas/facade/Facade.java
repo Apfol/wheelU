@@ -18,7 +18,7 @@ public class Facade implements IProxy {
 	
 	private static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	private static ArrayList<Reserva> reservas = new ArrayList<Reserva>();
-	private static Hashtable<String, Long> aleatorios = new Hashtable<String, Long>();
+	private static Hashtable<Long, String> aleatoriosHash = new Hashtable<Long, String>();
 	
 	private static Facade mFacade;
 	private  Factory fabricaUsers = new Factory();;
@@ -38,7 +38,7 @@ public class Facade implements IProxy {
 	@Override
 	public Aleatorio iniciarSesion(String correo, String password) {
 		long aleatorio =  (long) (Math.random() * 2E13+1);
-		aleatorios.put(correo, aleatorio);
+		aleatoriosHash.put(aleatorio, correo);
 		return new Aleatorio(correo, aleatorio);
 	}
 	
@@ -54,12 +54,33 @@ public class Facade implements IProxy {
 	}
 	
 	public void reservasDummy() {
-		reservas.add(new Reserva("Reserva1", 2, 1073525507));
+		reservas.add(new Reserva("Reserva1", 2, "1073525507"));
 	}
 
 	public ArrayList<Reserva> getReservas() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public Reserva modificarReserva(String nombreReserva, int iDRutaReservada, String documentoPasajero) {
+		Reserva reservaModificada = new Reserva(nombreReserva, iDRutaReservada, documentoPasajero);
+		int contador = 0;
+		for(Reserva reserva: reservas) {
+			if(reserva.getNombreReserva().equals(nombreReserva)) {
+				reservas.set(contador, reservaModificada);
+				return reservaModificada;
+			}
+			contador++;
+		}
+		return null;
+	}
+
+	public boolean isSesion(Aleatorio aleatorio, String correo) {
+		if(aleatoriosHash.containsKey(aleatorio.getAleatorio()) && correo.equals(aleatoriosHash.get(aleatorio.getAleatorio()))) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 }
