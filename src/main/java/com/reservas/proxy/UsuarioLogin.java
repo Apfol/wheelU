@@ -5,6 +5,10 @@ public class UsuarioLogin {
 	private String correo;
 	private String password;
 	
+	public UsuarioLogin() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public UsuarioLogin(String correo, String password) {
 		super();
 		this.correo = correo;

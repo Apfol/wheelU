@@ -101,6 +101,14 @@
       "in": "path",
       "required": true,
       "type": "string"
+     },
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Aleatorio"
+      }
      }
     ],
     "responses": {

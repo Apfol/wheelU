@@ -104,8 +104,11 @@ public class YourFirstAPI {
 		return reserva;		
 	}
 	@ApiMethod(name = "eliminar_reserva", httpMethod = ApiMethod.HttpMethod.DELETE)
-	public void eliminarReserva(@Named("IdRuta") String idRuta,@Named("DocPasajero") String docPasa) throws ServiceException {
-		
+	public void eliminarReserva(@Named("IdRuta") String idRuta,@Named("DocPasajero") String docPasa
+			,Aleatorio aleatorio) throws ServiceException {
+		if (!facade.isSesion(aleatorio, docPasa)) {
+			throw new ForbiddenException("Invalid credentials");
+		}
 		facade.eliminarReserva(idRuta, docPasa);
 	}
 	
