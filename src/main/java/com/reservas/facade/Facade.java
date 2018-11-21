@@ -85,8 +85,7 @@ public class Facade implements IProxy {
 	}
 
 	public ArrayList<Reserva> getReservas() {
-		// TODO Auto-generated method stub
-		return null;
+		return reservas;
 	}
 
 	public Reserva modificarReserva(String nombreReserva, String iDRutaReservada, String documentoPasajero) {

@@ -59,7 +59,7 @@ public class YourFirstAPI {
 		return proxy.iniciarSesion(correo, password);
 	}
 
-	@ApiMethod(name = "modificar_reserva")
+	@ApiMethod(name = "modificar_reserva", httpMethod = ApiMethod.HttpMethod.PUT)
 	public Reserva modificarReserva(@Named("nombreReserva") String nombreReserva,
 			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String documentoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
@@ -76,7 +76,7 @@ public class YourFirstAPI {
 		return reservaModificada;
 	}
 
-	@ApiMethod(name = "consultar_reservas")
+	@ApiMethod(name = "consultar_reservas", httpMethod = ApiMethod.HttpMethod.GET)
 	public ArrayList<Reserva> consultarReservas(@Named("documentoPasajero") String documentoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
 		if (!facade.isSesion(aleatorio, documentoPasajero)) {
