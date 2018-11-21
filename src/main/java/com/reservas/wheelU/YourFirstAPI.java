@@ -92,7 +92,7 @@ public class YourFirstAPI {
 	
 	@ApiMethod(name = "crear_reserva", httpMethod = ApiMethod.HttpMethod.POST)
 	public Reserva crearReserva(@Named("nombreReserva") String nombreReserva,
-			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String correoPasajero,
+			@Named("IDRutaReservada") String IDRutaReservada, @Named("correoPasajero") String correoPasajero,
 			Aleatorio aleatorio) throws ServiceException{
 		if (!facade.isSesion(aleatorio, correoPasajero)) {
 			throw new ForbiddenException("Invalid credentials");
@@ -104,7 +104,7 @@ public class YourFirstAPI {
 		return reserva;		
 	}
 	@ApiMethod(name = "eliminar_reserva", httpMethod = ApiMethod.HttpMethod.DELETE)
-	public void eliminarReserva(@Named("IdRuta") String idRuta,@Named("DocPasajero") String coPasa) throws ServiceException {
+	public void eliminarReserva(@Named("IdRuta") String idRuta,@Named("correoPasajero") String coPasa) throws ServiceException {
 		
 		facade.eliminarReserva(idRuta, coPasa);
 	}
