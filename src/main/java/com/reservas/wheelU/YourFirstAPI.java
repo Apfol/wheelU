@@ -61,13 +61,13 @@ public class YourFirstAPI {
 
 	@ApiMethod(name = "modificar_reserva", httpMethod = ApiMethod.HttpMethod.PUT)
 	public Reserva modificarReserva(@Named("nombreReservaModificar") String nombreReserva,
-			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String documentoPasajero,
+			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String correoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
-		if (!facade.isSesion(aleatorio, documentoPasajero)) {
+		if (!facade.isSesion(aleatorio, correoPasajero)) {
 			throw new ForbiddenException("Invalid credentials");
 		}
 
-		Reserva reservaModificada = facade.modificarReserva(nombreReserva, IDRutaReservada, documentoPasajero);
+		Reserva reservaModificada = facade.modificarReserva(nombreReserva, IDRutaReservada, correoPasajero);
 
 		if (reservaModificada == null) {
 			throw new NotFoundException("Reserva no encontrada");
@@ -77,12 +77,12 @@ public class YourFirstAPI {
 	}
 
 	@ApiMethod(name = "consultar_reservas", httpMethod = ApiMethod.HttpMethod.GET)
-	public ArrayList<Reserva> consultarReservas(@Named("documentoPasajero") String documentoPasajero,
+	public ArrayList<Reserva> consultarReservas(@Named("correoPasajero") String correoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
-		if (!facade.isSesion(aleatorio, documentoPasajero)) {
+		if (!facade.isSesion(aleatorio, correoPasajero)) {
 			throw new ForbiddenException("Invalid credentials");
 		}
-		ArrayList<Reserva> reservasPasajero = facade.consultarReservas(documentoPasajero);
+		ArrayList<Reserva> reservasPasajero = facade.consultarReservas(correoPasajero);
 		if (reservasPasajero.isEmpty()) {
 			throw new NotFoundException("Reservas no encontradas");
 		}
@@ -92,29 +92,29 @@ public class YourFirstAPI {
 	
 	@ApiMethod(name = "crear_reserva", httpMethod = ApiMethod.HttpMethod.POST)
 	public Reserva crearReserva(@Named("nombreReserva") String nombreReserva,
-			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String documentoPasajero,
+			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String correoPasajero,
 			Aleatorio aleatorio) throws ServiceException{
-		if (!facade.isSesion(aleatorio, documentoPasajero)) {
+		if (!facade.isSesion(aleatorio, correoPasajero)) {
 			throw new ForbiddenException("Invalid credentials");
 		}
 
-		Reserva reserva =new Reserva(nombreReserva, IDRutaReservada, documentoPasajero);
+		Reserva reserva =new Reserva(nombreReserva, IDRutaReservada, correoPasajero);
 		facade.addReserva(reserva);
 
 		return reserva;		
 	}
 	@ApiMethod(name = "eliminar_reserva", httpMethod = ApiMethod.HttpMethod.DELETE)
-	public void eliminarReserva(@Named("IdRuta") String idRuta,@Named("DocPasajero") String docPasa) throws ServiceException {
+	public void eliminarReserva(@Named("IdRuta") String idRuta,@Named("DocPasajero") String coPasa) throws ServiceException {
 		
-		facade.eliminarReserva(idRuta, docPasa);
+		facade.eliminarReserva(idRuta, coPasa);
 	}
 	
 	@ApiMethod(name = "obtener_usuario")
-	public Usuario obtenerUsuario(@Named("documento") String documento, Aleatorio aleatorio) throws ForbiddenException {
-		if (!facade.isSesion(aleatorio, documento)) {
+	public Usuario obtenerUsuario(@Named("correo") String correo, Aleatorio aleatorio) throws ForbiddenException {
+		if (!facade.isSesion(aleatorio, correo)) {
 			throw new ForbiddenException("Invalid credentials");
 		}
-		return facade.obtenerUsuario(documento);
+		return facade.obtenerUsuario(correo);
 	}
 
 }
