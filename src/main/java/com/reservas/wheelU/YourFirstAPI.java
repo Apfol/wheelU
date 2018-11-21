@@ -108,5 +108,13 @@ public class YourFirstAPI {
 		
 		facade.eliminarReserva(idRuta, docPasa);
 	}
+	
+	@ApiMethod(name = "obtener_usuario", httpMethod = ApiMethod.HttpMethod.GET)
+	public Usuario obtenerUsuario(@Named("DocumentoPasajero") String documentoPasajero, Aleatorio aleatorio) throws ForbiddenException {
+		if (!facade.isSesion(aleatorio, documentoPasajero)) {
+			throw new ForbiddenException("Invalid credentials");
+		}
+		return facade.obtenerUsuario(documentoPasajero);
+	}
 
 }
