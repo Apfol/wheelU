@@ -60,14 +60,14 @@ public class YourFirstAPI {
 	}
 
 	@ApiMethod(name = "modificar_reserva", httpMethod = ApiMethod.HttpMethod.PUT)
-	public Reserva modificarReserva(@Named("nombreReservaModificar") String nombreReserva,
-			@Named("IDRutaReservada") String IDRutaReservada, @Named("correoPasajero") String correoPasajero,
+	public Reserva modificarReserva(@Named("nombreReservaModificar") String nombreReservaModificar, @Named("nuevoNombre") String nuevoNombreReserva,
+			@Named("NuevaIDRuta") String nuevaIDRuta, @Named("correoPasajero") String correoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
 		if (!facade.isSesion(aleatorio, correoPasajero)) {
 			throw new ForbiddenException("Invalid credentials");
 		}
 
-		Reserva reservaModificada = facade.modificarReserva(nombreReserva, IDRutaReservada, correoPasajero);
+		Reserva reservaModificada = facade.modificarReserva(nombreReservaModificar, nuevoNombreReserva, nuevaIDRuta, correoPasajero);
 
 		if (reservaModificada == null) {
 			throw new NotFoundException("Reserva no encontrada");

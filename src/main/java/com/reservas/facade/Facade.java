@@ -88,11 +88,11 @@ public class Facade implements IProxy {
 		return reservas;
 	}
 
-	public Reserva modificarReserva(String nombreReserva, String iDRutaReservada, String correoPasajero) {
-		Reserva reservaModificada = new Reserva(nombreReserva, iDRutaReservada, correoPasajero);
+	public Reserva modificarReserva(String nombreReservaModificar, String nuevoNombreRuta, String nuevaIDRuta, String correoPasajero) {
+		Reserva reservaModificada = new Reserva(nuevoNombreRuta, nuevaIDRuta, correoPasajero);
 		int contador = 0;
 		for(Reserva reserva: reservas) {
-			if(reserva.getNombreReserva().equals(nombreReserva)) {
+			if(reserva.getNombreReserva().equals(nombreReservaModificar)) {
 				reservas.set(contador, reservaModificada);
 				return reservaModificada;
 			}
