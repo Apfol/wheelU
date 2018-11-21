@@ -4,13 +4,13 @@ public class Reserva {
 	
 	private String nombreReserva;
 	private String IDRutaReservada;
-	private String documentoPasajero;
+	private String correoPasajero;
 	
 	public Reserva(String nombreReserva, String iDRutaReservada, String documentoPasajero) {
 		super();
 		this.nombreReserva = nombreReserva;
 		this.IDRutaReservada = iDRutaReservada;
-		this.documentoPasajero = documentoPasajero;
+		this.correoPasajero = documentoPasajero;
 	}
 	public String getNombreReserva() {
 		return nombreReserva;
@@ -25,10 +25,10 @@ public class Reserva {
 		this.IDRutaReservada = iDRutaReservada;
 	}
 	public String getDocumentoPasajero() {
-		return documentoPasajero;
+		return correoPasajero;
 	}
 	public void setDocumentoPasajero(String documentoPasajero) {
-		this.documentoPasajero = documentoPasajero;
+		this.correoPasajero = documentoPasajero;
 	}
 	
 }

@@ -45,11 +45,11 @@ public class Facade implements IProxy {
 		return usu;
 	}
 	
-	public void eliminarReserva(String idRuta, String docPasa) {
+	public void eliminarReserva(String idRuta, String coPas) {
 		for (Reserva reserva : reservas) {
 			if(reserva.getIDRutaReservada().equals(idRuta)) {
 				for(Usuario us: usuarios) {
-					if(us.getDocumento().equals(docPasa)) {
+					if(us.getCorreo().equals(coPas)) {
 						reservas.remove(reserva);
 						break;
 					}
@@ -88,8 +88,8 @@ public class Facade implements IProxy {
 		return reservas;
 	}
 
-	public Reserva modificarReserva(String nombreReserva, String iDRutaReservada, String documentoPasajero) {
-		Reserva reservaModificada = new Reserva(nombreReserva, iDRutaReservada, documentoPasajero);
+	public Reserva modificarReserva(String nombreReserva, String iDRutaReservada, String correoPasajero) {
+		Reserva reservaModificada = new Reserva(nombreReserva, iDRutaReservada, correoPasajero);
 		int contador = 0;
 		for(Reserva reserva: reservas) {
 			if(reserva.getNombreReserva().equals(nombreReserva)) {
@@ -109,19 +109,20 @@ public class Facade implements IProxy {
 		}
 	}
 
-	public ArrayList<Reserva> consultarReservas(String documentoPasajero) {
+	public ArrayList<Reserva> consultarReservas(String correoPasajero) {
 		ArrayList<Reserva> reservasPasajero = new ArrayList<>();
+		Usuario usuario = obtenerUsuario(correoPasajero);
 		for(Reserva reserva: reservas) {
-			if(documentoPasajero.equals(reserva.getDocumentoPasajero())) {
+			if(usuario.getCorreo().equals(reserva.getDocumentoPasajero())) {
 				reservasPasajero.add(reserva);
 			}
 		}
 		return reservasPasajero;
 	}
 
-	public Usuario obtenerUsuario(String documentoPasajero) {
+	public Usuario obtenerUsuario(String correoPasajero) {
 		for(Usuario usuario: usuarios) {
-			if(usuario.getCorreo().equals(documentoPasajero)) {
+			if(usuario.getCorreo().equals(correoPasajero)) {
 				return usuario;
 			}
 		}
