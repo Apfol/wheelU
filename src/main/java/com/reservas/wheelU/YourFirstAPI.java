@@ -19,7 +19,10 @@ import com.reservas.proxy.Proxy;
  * Add your first API methods in this class, or you may create another class. In
  * that case, please update your web.xml accordingly.
  **/
-@Api(name = "reservas", version = "v1", namespace = @ApiNamespace(ownerDomain = "wheelU.reservas.com", ownerName = "wheelU.reservas.com", packagePath = ""))
+@Api(name = "reservas", version = "v1", 
+namespace = @ApiNamespace(ownerDomain = "wheelU.reservas.com", 
+			ownerName = "wheelU.reservas.com", packagePath = ""))
+
 public class YourFirstAPI {
 
 	Facade facade = Facade.getInstance();
@@ -87,7 +90,7 @@ public class YourFirstAPI {
 	}
 	
 	
-	@ApiMethod(name = "Crear reserva")
+	@ApiMethod(name = "crear_reserva", httpMethod = ApiMethod.HttpMethod.POST)
 	public Reserva crearReserva(@Named("nombreReserva") String nombreReserva,
 			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String documentoPasajero,
 			Aleatorio aleatorio) throws ServiceException{
@@ -100,8 +103,8 @@ public class YourFirstAPI {
 
 		return reserva;		
 	}
-	@ApiMethod(name = "Eliminar reserva")
-	public void eliminarReserva(String idRuta, String docPasa) throws ServiceException {
+	@ApiMethod(name = "eliminar_reserva", httpMethod = ApiMethod.HttpMethod.DELETE)
+	public void eliminarReserva(@Named("IdRuta") String idRuta,@Named("DocPasajero") String docPasa) throws ServiceException {
 		
 		facade.eliminarReserva(idRuta, docPasa);
 	}
