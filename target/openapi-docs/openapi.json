@@ -1,0 +1,231 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "version": "1.0.0",
+  "title": "wheel-u-reservas.appspot.com"
+ },
+ "host": "wheel-u-reservas.appspot.com",
+ "basePath": "/_ah/api",
+ "schemes": [
+  "https"
+ ],
+ "consumes": [
+  "application/json"
+ ],
+ "produces": [
+  "application/json"
+ ],
+ "paths": {
+  "/reservas/v1/consultarReservas/{DocumentoPasajero}": {
+   "post": {
+    "operationId": "ReservasConsultarReservas",
+    "parameters": [
+     {
+      "name": "DocumentoPasajero",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Aleatorio"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/ReservaCollection"
+      }
+     }
+    }
+   }
+  },
+  "/reservas/v1/login/{Correo}/{Password}": {
+   "post": {
+    "operationId": "ReservasLogin",
+    "parameters": [
+     {
+      "name": "Correo",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "name": "Password",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Aleatorio"
+      }
+     }
+    }
+   }
+  },
+  "/reservas/v1/modificarReserva/{NombreReserva}/{IDRutaReservada}/{DocumentoPasajero}": {
+   "post": {
+    "operationId": "ReservasModificarReserva",
+    "parameters": [
+     {
+      "name": "NombreReserva",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "name": "IDRutaReservada",
+      "in": "path",
+      "required": true,
+      "type": "integer",
+      "format": "int32"
+     },
+     {
+      "name": "DocumentoPasajero",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Aleatorio"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Reserva"
+      }
+     }
+    }
+   }
+  },
+  "/reservas/v1/obtenerUsuarios": {
+   "post": {
+    "operationId": "ReservasObtenerUsuarios",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/UsuarioCollection"
+      }
+     }
+    }
+   }
+  },
+  "/reservas/v1/reservas": {
+   "post": {
+    "operationId": "ReservasReservas",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/ReservaCollection"
+      }
+     }
+    }
+   }
+  },
+  "/reservas/v1/reservasDummy": {
+   "post": {
+    "operationId": "ReservasReservasDummy",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  },
+  "/reservas/v1/usuariosDummy": {
+   "post": {
+    "operationId": "ReservasUsuariosDummy",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  }
+ },
+ "definitions": {
+  "Usuario": {
+   "properties": {
+    "contrasena": {
+     "type": "string"
+    },
+    "correo": {
+     "type": "string"
+    },
+    "documento": {
+     "type": "string"
+    },
+    "nombre": {
+     "type": "string"
+    }
+   }
+  },
+  "Reserva": {
+   "properties": {
+    "documentoPasajero": {
+     "type": "string"
+    },
+    "idrutaReservada": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "nombreReserva": {
+     "type": "string"
+    }
+   }
+  },
+  "Aleatorio": {
+   "properties": {
+    "aleatorio": {
+     "type": "integer",
+     "format": "int64"
+    },
+    "correo": {
+     "type": "string"
+    }
+   }
+  },
+  "ReservaCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Reserva"
+     }
+    }
+   }
+  },
+  "UsuarioCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Usuario"
+     }
+    }
+   }
+  }
+ }
+}
