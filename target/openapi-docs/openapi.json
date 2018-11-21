@@ -16,12 +16,12 @@
   "application/json"
  ],
  "paths": {
-  "/reservas/v1/consultarReservas/{DocumentoPasajero}": {
+  "/reservas/v1/consultarReservas/{documentoPasajero}": {
    "post": {
     "operationId": "ReservasConsultarReservas",
     "parameters": [
      {
-      "name": "DocumentoPasajero",
+      "name": "documentoPasajero",
       "in": "path",
       "required": true,
       "type": "string"
@@ -45,18 +45,83 @@
     }
    }
   },
-  "/reservas/v1/login/{Correo}/{Password}": {
+  "/reservas/v1/crearReserva/{nombreReserva}/{IDRutaReservada}/{documentoPasajero}": {
    "post": {
-    "operationId": "ReservasLogin",
+    "operationId": "ReservasCrearReserva",
     "parameters": [
      {
-      "name": "Correo",
+      "name": "nombreReserva",
       "in": "path",
       "required": true,
       "type": "string"
      },
      {
-      "name": "Password",
+      "name": "IDRutaReservada",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "name": "documentoPasajero",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Aleatorio"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Reserva"
+      }
+     }
+    }
+   }
+  },
+  "/reservas/v1/eliminarReserva/{IdRuta}/{DocPasajero}": {
+   "delete": {
+    "operationId": "ReservasEliminarReserva",
+    "parameters": [
+     {
+      "name": "IdRuta",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "name": "DocPasajero",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  },
+  "/reservas/v1/login/{correo}/{password}": {
+   "post": {
+    "operationId": "ReservasLogin",
+    "parameters": [
+     {
+      "name": "correo",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "name": "password",
       "in": "path",
       "required": true,
       "type": "string"
@@ -72,12 +137,12 @@
     }
    }
   },
-  "/reservas/v1/modificarReserva/{NombreReserva}/{IDRutaReservada}/{DocumentoPasajero}": {
+  "/reservas/v1/modificarReserva/{nombreReserva}/{IDRutaReservada}/{documentoPasajero}": {
    "post": {
     "operationId": "ReservasModificarReserva",
     "parameters": [
      {
-      "name": "NombreReserva",
+      "name": "nombreReserva",
       "in": "path",
       "required": true,
       "type": "string"
@@ -86,11 +151,10 @@
       "name": "IDRutaReservada",
       "in": "path",
       "required": true,
-      "type": "integer",
-      "format": "int32"
+      "type": "string"
      },
      {
-      "name": "DocumentoPasajero",
+      "name": "documentoPasajero",
       "in": "path",
       "required": true,
       "type": "string"
@@ -115,7 +179,7 @@
    }
   },
   "/reservas/v1/obtenerUsuarios": {
-   "post": {
+   "get": {
     "operationId": "ReservasObtenerUsuarios",
     "parameters": [ ],
     "responses": {
@@ -129,7 +193,7 @@
    }
   },
   "/reservas/v1/reservas": {
-   "post": {
+   "get": {
     "operationId": "ReservasReservas",
     "parameters": [ ],
     "responses": {
@@ -188,8 +252,7 @@
      "type": "string"
     },
     "idrutaReservada": {
-     "type": "integer",
-     "format": "int32"
+     "type": "string"
     },
     "nombreReserva": {
      "type": "string"

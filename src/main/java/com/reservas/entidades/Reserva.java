@@ -3,13 +3,13 @@ package com.reservas.entidades;
 public class Reserva {
 	
 	private String nombreReserva;
-	private int IDRutaReservada;
+	private String IDRutaReservada;
 	private String documentoPasajero;
 	
-	public Reserva(String nombreReserva, int iDRutaReservada, String documentoPasajero) {
+	public Reserva(String nombreReserva, String iDRutaReservada, String documentoPasajero) {
 		super();
 		this.nombreReserva = nombreReserva;
-		IDRutaReservada = iDRutaReservada;
+		this.IDRutaReservada = iDRutaReservada;
 		this.documentoPasajero = documentoPasajero;
 	}
 	public String getNombreReserva() {
@@ -18,11 +18,11 @@ public class Reserva {
 	public void setNombreReserva(String nombreReserva) {
 		this.nombreReserva = nombreReserva;
 	}
-	public int getIDRutaReservada() {
+	public String getIDRutaReservada() {
 		return IDRutaReservada;
 	}
-	public void setIDRutaReservada(int iDRutaReservada) {
-		IDRutaReservada = iDRutaReservada;
+	public void setIDRutaReservada(String iDRutaReservada) {
+		this.IDRutaReservada = iDRutaReservada;
 	}
 	public String getDocumentoPasajero() {
 		return documentoPasajero;
