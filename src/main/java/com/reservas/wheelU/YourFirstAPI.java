@@ -60,7 +60,7 @@ public class YourFirstAPI {
 	}
 
 	@ApiMethod(name = "modificar_reserva", httpMethod = ApiMethod.HttpMethod.PUT)
-	public Reserva modificarReserva(@Named("nombreReserva") String nombreReserva,
+	public Reserva modificarReserva(@Named("nombreReservaModificar") String nombreReserva,
 			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String documentoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
 		if (!facade.isSesion(aleatorio, documentoPasajero)) {
@@ -110,11 +110,11 @@ public class YourFirstAPI {
 	}
 	
 	@ApiMethod(name = "obtener_usuario")
-	public Usuario obtenerUsuario(@Named("correo") String correo, Aleatorio aleatorio) throws ForbiddenException {
-		if (!facade.isSesion(aleatorio, correo)) {
+	public Usuario obtenerUsuario(@Named("documento") String documento, Aleatorio aleatorio) throws ForbiddenException {
+		if (!facade.isSesion(aleatorio, documento)) {
 			throw new ForbiddenException("Invalid credentials");
 		}
-		return facade.obtenerUsuario(correo);
+		return facade.obtenerUsuario(documento);
 	}
 
 }

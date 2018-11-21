@@ -2,7 +2,7 @@ package com.reservas.proxy;
 
 public class Aleatorio {
 	
-	private String correo;
+	private String documento;
 	private String aleatorio;
 	
 	public Aleatorio() {
@@ -10,16 +10,16 @@ public class Aleatorio {
 	}
 	
 	public Aleatorio(String correo, String aleatorio) {
-		this.correo = correo;
+		this.documento = correo;
 		this.aleatorio = aleatorio;
 	}
 
 	public String getCorreo() {
-		return correo;
+		return documento;
 	}
 
 	public void setCorreo(String correo) {
-		this.correo = correo;
+		this.documento = correo;
 	}
 
 	public String getAleatorio() {

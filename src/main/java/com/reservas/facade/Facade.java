@@ -101,8 +101,8 @@ public class Facade implements IProxy {
 		return null;
 	}
 
-	public boolean isSesion(Aleatorio aleatorio, String correo) {
-		if(aleatoriosHash.containsKey(aleatorio.getAleatorio()) && correo.equals(aleatoriosHash.get(aleatorio.getAleatorio()))) {
+	public boolean isSesion(Aleatorio aleatorio, String documento) {
+		if(aleatoriosHash.containsKey(aleatorio.getAleatorio()) && documento.equals(aleatoriosHash.get(aleatorio.getAleatorio()))) {
 			return true;
 		} else {
 			return false;
