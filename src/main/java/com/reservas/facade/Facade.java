@@ -34,6 +34,33 @@ public class Facade implements IProxy {
 	public ArrayList<Usuario> getUsuarios() {
 		return usuarios;
 	}
+	public Usuario getUsuario(String idUs) {
+		Usuario usu = null; 
+		for (Usuario us : usuarios) {
+			if(us.getDocumento().equals(idUs)) {
+				usu = us;
+				return usu;
+			}
+		}
+		return usu;
+	}
+	
+	public void eliminarReserva(String idRuta, String docPasa) {
+		for (Reserva reserva : reservas) {
+			if(reserva.getIDRutaReservada().equals(idRuta)) {
+				for(Usuario us: usuarios) {
+					if(us.getDocumento().equals(docPasa)) {
+						reservas.remove(reserva);
+						break;
+					}
+				}
+			}
+		}
+	}
+	
+	public void addReserva(Reserva res) {
+		reservas.add(res);
+	}
 
 	@Override
 	public Aleatorio iniciarSesion(String correo, String password) {
@@ -54,7 +81,7 @@ public class Facade implements IProxy {
 	}
 	
 	public void reservasDummy() {
-		reservas.add(new Reserva("Reserva1", 2, "1073525507"));
+		reservas.add(new Reserva("Reserva1", "2", "1073525507"));
 	}
 
 	public ArrayList<Reserva> getReservas() {
@@ -62,7 +89,7 @@ public class Facade implements IProxy {
 		return null;
 	}
 
-	public Reserva modificarReserva(String nombreReserva, int iDRutaReservada, String documentoPasajero) {
+	public Reserva modificarReserva(String nombreReserva, String iDRutaReservada, String documentoPasajero) {
 		Reserva reservaModificada = new Reserva(nombreReserva, iDRutaReservada, documentoPasajero);
 		int contador = 0;
 		for(Reserva reserva: reservas) {
