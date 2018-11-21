@@ -25,27 +25,27 @@ public class YourFirstAPI {
 	Facade facade = Facade.getInstance();
 	Proxy proxy = Proxy.getInstance();
 
-	@ApiMethod(name = "obtenerReservas", httpMethod = ApiMethod.HttpMethod.GET)
+	@ApiMethod(name = "obtener_reservas", httpMethod = ApiMethod.HttpMethod.GET)
 	public ArrayList<Reserva> reservas() {
 		return facade.getReservas();
 	}
 
-	@ApiMethod(name = "obtenerUsuarios", httpMethod = ApiMethod.HttpMethod.GET)
+	@ApiMethod(name = "obtener_usuarios", httpMethod = ApiMethod.HttpMethod.GET)
 	public ArrayList<Usuario> obtenerUsuarios() {
 		return facade.getUsuarios();
 	}
 
-	@ApiMethod(name = "quemarUsuarios")
+	@ApiMethod(name = "quemar_usuarios")
 	public void usuariosDummy() {
 		facade.usuariosDummy();
 	}
 
-	@ApiMethod(name = "quemarReservas")
+	@ApiMethod(name = "quemar_reservas")
 	public void reservasDummy() {
 		facade.reservasDummy();
 	}
 
-	@ApiMethod(name = "iniciarSesion")
+	@ApiMethod(name = "iniciar_sesion")
 	public Aleatorio login(@Named("correo") String correo, @Named("password") String password)
 			throws ForbiddenException {
 		Aleatorio aleatorio = proxy.iniciarSesion(correo, password);
@@ -56,7 +56,7 @@ public class YourFirstAPI {
 		return proxy.iniciarSesion(correo, password);
 	}
 
-	@ApiMethod(name = "ModificarReserva")
+	@ApiMethod(name = "Modificar_reserva")
 	public Reserva modificarReserva(@Named("nombreReserva") String nombreReserva,
 			@Named("IDRutaReservada") int IDRutaReservada, @Named("documentoPasajero") String documentoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
@@ -73,7 +73,7 @@ public class YourFirstAPI {
 		return reservaModificada;
 	}
 
-	@ApiMethod(name = "ConsultarReservas")
+	@ApiMethod(name = "Consultar_reservas")
 	public ArrayList<Reserva> consultarReservas(@Named("documentoPasajero") String documentoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
 		if (!facade.isSesion(aleatorio, documentoPasajero)) {
