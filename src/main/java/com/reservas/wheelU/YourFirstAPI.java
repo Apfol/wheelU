@@ -61,7 +61,7 @@ public class YourFirstAPI {
 
 	@ApiMethod(name = "modificar_reserva", httpMethod = ApiMethod.HttpMethod.PUT)
 	public Reserva modificarReserva(@Named("nombreReservaModificar") String nombreReserva,
-			@Named("IDRutaReservada") String IDRutaReservada, @Named("documentoPasajero") String correoPasajero,
+			@Named("IDRutaReservada") String IDRutaReservada, @Named("correoPasajero") String correoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
 		if (!facade.isSesion(aleatorio, correoPasajero)) {
 			throw new ForbiddenException("Invalid credentials");
