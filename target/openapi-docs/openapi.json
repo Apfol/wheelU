@@ -87,7 +87,7 @@
    }
   },
   "/reservas/v1/eliminarReserva/{IdRuta}/{DocPasajero}": {
-   "post": {
+   "delete": {
     "operationId": "ReservasEliminarReserva",
     "parameters": [
      {
