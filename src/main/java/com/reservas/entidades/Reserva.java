@@ -6,6 +6,10 @@ public class Reserva {
 	private String IDRutaReservada;
 	private String documentoPasajero;
 	
+	public Reserva() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Reserva(String nombreReserva, String iDRutaReservada, String documentoPasajero) {
 		super();
 		this.nombreReserva = nombreReserva;

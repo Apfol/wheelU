@@ -5,8 +5,12 @@ public class Aleatorio {
 	private String correo;
 	private long aleatorio;
 	
+	
+	public Aleatorio() {
+		
+	}
+
 	public Aleatorio(String correo, long aleatorio) {
-		super();
 		this.correo = correo;
 		this.aleatorio = aleatorio;
 	}
