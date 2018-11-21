@@ -3,3 +3,8 @@
 
 # Log file
 *.log
+target/wheelU-1.0-SNAPSHOT.war
+*.class
+*.class
+target/appengine-staging/WEB-INF/classes/com/reservas/wheelU/EchoEndpointModule.class
+*.class

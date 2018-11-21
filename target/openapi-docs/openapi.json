@@ -111,7 +111,7 @@
    }
   },
   "/reservas/v1/login/{correo}/{password}": {
-   "post": {
+   "get": {
     "operationId": "ReservasLogin",
     "parameters": [
      {
@@ -173,6 +173,35 @@
       "description": "A successful response",
       "schema": {
        "$ref": "#/definitions/Reserva"
+      }
+     }
+    }
+   }
+  },
+  "/reservas/v1/obtenerUsuario/{correo}": {
+   "post": {
+    "operationId": "ReservasObtenerUsuario",
+    "parameters": [
+     {
+      "name": "correo",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Aleatorio"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Usuario"
       }
      }
     }
@@ -262,8 +291,7 @@
   "Aleatorio": {
    "properties": {
     "aleatorio": {
-     "type": "integer",
-     "format": "int64"
+     "type": "string"
     },
     "correo": {
      "type": "string"
