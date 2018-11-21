@@ -9,7 +9,6 @@ import com.google.api.server.spi.config.ApiNamespace;
 import com.google.api.server.spi.config.Named;
 import com.google.api.server.spi.response.ForbiddenException;
 import com.google.api.server.spi.response.NotFoundException;
-import com.google.api.server.spi.response.UnauthorizedException;
 import com.reservas.entidades.Reserva;
 import com.reservas.entidades.Usuario;
 import com.reservas.facade.Facade;
