@@ -27,7 +27,7 @@ public class Proxy implements IProxy{
 				return facade.iniciarSesion(usLogin.getCorreo(), usLogin.getPassword());
 			}
 		}
-		return new Aleatorio(null, 0);
+		return new Aleatorio(null, "0");
 	}
 	
 	public static ArrayList<UsuarioLogin> getUsuarios() {

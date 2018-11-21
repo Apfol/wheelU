@@ -52,7 +52,7 @@ public class YourFirstAPI {
 	public Aleatorio login(@Named("correo") String correo, @Named("password") String password)
 			throws ForbiddenException {
 		Aleatorio aleatorio = proxy.iniciarSesion(correo, password);
-		if (aleatorio.getAleatorio() == 0) {
+		if (aleatorio.getAleatorio().equals("0")) {
 			throw new ForbiddenException("Invalid credentials");
 		}
 		Proxy proxy = Proxy.getInstance();
@@ -109,12 +109,12 @@ public class YourFirstAPI {
 		facade.eliminarReserva(idRuta, docPasa);
 	}
 	
-	@ApiMethod(name = "obtener_usuario", httpMethod = ApiMethod.HttpMethod.GET)
-	public Usuario obtenerUsuario(@Named("DocumentoPasajero") String documentoPasajero, Aleatorio aleatorio) throws ForbiddenException {
-		if (!facade.isSesion(aleatorio, documentoPasajero)) {
+	@ApiMethod(name = "obtener_usuario")
+	public Usuario obtenerUsuario(@Named("DocumentoPasajero") String correo, Aleatorio aleatorio) throws ForbiddenException {
+		if (!facade.isSesion(aleatorio, correo)) {
 			throw new ForbiddenException("Invalid credentials");
 		}
-		return facade.obtenerUsuario(documentoPasajero);
+		return facade.obtenerUsuario(correo);
 	}
 
 }

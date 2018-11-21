@@ -3,10 +3,13 @@ package com.reservas.proxy;
 public class Aleatorio {
 	
 	private String correo;
-	private long aleatorio;
+	private String aleatorio;
 	
-	public Aleatorio(String correo, long aleatorio) {
-		super();
+	public Aleatorio() {
+		
+	}
+	
+	public Aleatorio(String correo, String aleatorio) {
 		this.correo = correo;
 		this.aleatorio = aleatorio;
 	}
@@ -19,11 +22,11 @@ public class Aleatorio {
 		this.correo = correo;
 	}
 
-	public long getAleatorio() {
+	public String getAleatorio() {
 		return aleatorio;
 	}
 
-	public void setAleatorio(long aleatorio) {
+	public void setAleatorio(String aleatorio) {
 		this.aleatorio = aleatorio;
 	}
 	

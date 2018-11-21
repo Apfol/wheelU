@@ -18,7 +18,7 @@ public class Facade implements IProxy {
 	
 	private static ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 	private static ArrayList<Reserva> reservas = new ArrayList<Reserva>();
-	private static Hashtable<Long, String> aleatoriosHash = new Hashtable<Long, String>();
+	private static Hashtable<String, String> aleatoriosHash = new Hashtable<String, String>();
 	
 	private static Facade mFacade;
 	private  Factory fabricaUsers = new Factory();;
@@ -64,7 +64,7 @@ public class Facade implements IProxy {
 
 	@Override
 	public Aleatorio iniciarSesion(String correo, String password) {
-		long aleatorio =  (long) (Math.random() * 2E13+1);
+		String aleatorio =  String.valueOf((long) (Math.random() * 2E13+1));
 		aleatoriosHash.put(aleatorio, correo);
 		return new Aleatorio(correo, aleatorio);
 	}
