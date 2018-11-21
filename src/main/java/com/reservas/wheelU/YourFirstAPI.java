@@ -110,7 +110,7 @@ public class YourFirstAPI {
 	}
 	
 	@ApiMethod(name = "obtener_usuario")
-	public Usuario obtenerUsuario(@Named("DocumentoPasajero") String correo, Aleatorio aleatorio) throws ForbiddenException {
+	public Usuario obtenerUsuario(@Named("correo") String correo, Aleatorio aleatorio) throws ForbiddenException {
 		if (!facade.isSesion(aleatorio, correo)) {
 			throw new ForbiddenException("Invalid credentials");
 		}
