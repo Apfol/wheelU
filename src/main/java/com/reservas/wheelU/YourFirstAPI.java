@@ -45,7 +45,7 @@ public class YourFirstAPI {
 		facade.reservasDummy();
 	}
 
-	@ApiMethod(name = "iniciar_sesion")
+	@ApiMethod(name = "iniciar_sesion", httpMethod = ApiMethod.HttpMethod.GET)
 	public Aleatorio login(@Named("correo") String correo, @Named("password") String password)
 			throws ForbiddenException {
 		Aleatorio aleatorio = proxy.iniciarSesion(correo, password);
@@ -56,7 +56,7 @@ public class YourFirstAPI {
 		return proxy.iniciarSesion(correo, password);
 	}
 
-	@ApiMethod(name = "Modificar_reserva")
+	@ApiMethod(name = "modificar_reserva")
 	public Reserva modificarReserva(@Named("nombreReserva") String nombreReserva,
 			@Named("IDRutaReservada") int IDRutaReservada, @Named("documentoPasajero") String documentoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
@@ -73,7 +73,7 @@ public class YourFirstAPI {
 		return reservaModificada;
 	}
 
-	@ApiMethod(name = "Consultar_reservas")
+	@ApiMethod(name = "consultar_reservas")
 	public ArrayList<Reserva> consultarReservas(@Named("documentoPasajero") String documentoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
 		if (!facade.isSesion(aleatorio, documentoPasajero)) {

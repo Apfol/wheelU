@@ -43,8 +43,8 @@ public class Facade implements IProxy {
 	}
 	
 	public void usuariosDummy() {
-		usuarios.add(new Conductor("Jario lopez", "jairolo@unisabana.edu.co", "jario123", "1073525507"));
-		Proxy.getUsuarios().add(new UsuarioLogin("jairolo@unisabana.edu.co", "jario123"));
+		usuarios.add(new Conductor("Jario lopez", "jairolo@unisabana.edu.co", "jairo123", "1073525507"));
+		Proxy.getUsuarios().add(new UsuarioLogin("jairolo@unisabana.edu.co", "jairo123"));
 		usuarios.add(new Conductor("Sara Bustos", "sarabu@unisabana.edu.co", "sara123", "1045676829"));
 		Proxy.getUsuarios().add(new UsuarioLogin("sarabu@unisabana.edu.co", "sara123"));
 		usuarios.add(new Pasajero("Ana Garcia", "anaga@unisabana.edu.co", "ana123", "1234567889"));
@@ -91,6 +91,15 @@ public class Facade implements IProxy {
 			}
 		}
 		return reservasPasajero;
+	}
+
+	public Usuario obtenerUsuario(String documentoPasajero) {
+		for(Usuario usuario: usuarios) {
+			if(usuario.getCorreo().equals(documentoPasajero)) {
+				return usuario;
+			}
+		}
+		return null;
 	}
 	
 }
