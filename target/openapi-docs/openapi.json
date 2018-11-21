@@ -1,0 +1,83 @@
+{
+ "swagger": "2.0",
+ "info": {
+  "version": "1.0.0",
+  "title": "wheel-u-reservas.appspot.com"
+ },
+ "host": "wheel-u-reservas.appspot.com",
+ "basePath": "/_ah/api",
+ "schemes": [
+  "https"
+ ],
+ "consumes": [
+  "application/json"
+ ],
+ "produces": [
+  "application/json"
+ ],
+ "paths": {
+  "/reservas/v1/reservas": {
+   "post": {
+    "operationId": "ReservasReservas",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/ReservaCollection"
+      }
+     }
+    }
+   }
+  },
+  "/reservas/v1/reservasDummy": {
+   "post": {
+    "operationId": "ReservasReservasDummy",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  },
+  "/reservas/v1/usuariosDummy": {
+   "post": {
+    "operationId": "ReservasUsuariosDummy",
+    "parameters": [ ],
+    "responses": {
+     "200": {
+      "description": "A successful response"
+     }
+    }
+   }
+  }
+ },
+ "definitions": {
+  "Reserva": {
+   "properties": {
+    "documentosPasajero": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "idrutaReservada": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "nombreReserva": {
+     "type": "string"
+    }
+   }
+  },
+  "ReservaCollection": {
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "#/definitions/Reserva"
+     }
+    }
+   }
+  }
+ }
+}

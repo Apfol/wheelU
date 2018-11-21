@@ -20,12 +20,13 @@ public class YourFirstAPI {
 	
 	public static ArrayList<Reserva> reservas = new ArrayList<Reserva>();
 	
-	@ApiMethod(name = "devolverReservas")
+	@ApiMethod(name = "devolver_reservas")
 	public ArrayList<Reserva> reservas() {
+		reservasDummy();
 		return reservas;
 	}
 	
-	@ApiMethod(name= "Quemar usuarios")
+	@ApiMethod(name= "Quemar_usuarios")
 	public void usuariosDummy() {
 		facade.usuariosDummy();
 	}
