@@ -76,7 +76,7 @@ public class YourFirstAPI {
 		return reservaModificada;
 	}
 
-	@ApiMethod(name = "consultar_reservas", httpMethod = ApiMethod.HttpMethod.GET)
+	@ApiMethod(name = "consultar_reservas", httpMethod = ApiMethod.HttpMethod.POST)
 	public ArrayList<Reserva> consultarReservas(@Named("correoPasajero") String correoPasajero,
 			Aleatorio aleatorio) throws ServiceException {
 		if (!facade.isSesion(aleatorio, correoPasajero)) {

@@ -81,7 +81,7 @@ public class Facade implements IProxy {
 	}
 	
 	public void reservasDummy() {
-		reservas.add(new Reserva("Reserva1", "2", "1073525507"));
+		reservas.add(new Reserva("Reserva1", "2", "jairolo@unisabana.edu.co"));
 	}
 
 	public ArrayList<Reserva> getReservas() {
