@@ -8,4 +8,11 @@
 		<property name="java.util.logging.config.file"
 			value="WEB-INF/logging.properties" />
 	</system-properties>
+
+	<env-variables>
+		<env-var name="ENDPOINTS_SERVICE_NAME"
+			value="wheel-u-reservas.appspot.com" />
+		<env-var name="ENDPOINTS_SERVICE_VERSION"
+			value="2018-11-22r0" />
+	</env-variables>
 </appengine-web-app>
