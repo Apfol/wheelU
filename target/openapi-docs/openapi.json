@@ -16,12 +16,12 @@
   "application/json"
  ],
  "paths": {
-  "/reservas/v1/consultarReservas/{documentoPasajero}": {
+  "/reservas/v1/consultarReservas/{correoPasajero}": {
    "post": {
     "operationId": "ReservasConsultarReservas",
     "parameters": [
      {
-      "name": "documentoPasajero",
+      "name": "correoPasajero",
       "in": "path",
       "required": true,
       "type": "string"
@@ -45,7 +45,7 @@
     }
    }
   },
-  "/reservas/v1/crearReserva/{nombreReserva}/{IDRutaReservada}/{documentoPasajero}": {
+  "/reservas/v1/crearReserva/{nombreReserva}/{IDRutaReservada}/{correoPasajero}": {
    "post": {
     "operationId": "ReservasCrearReserva",
     "parameters": [
@@ -62,7 +62,7 @@
       "type": "string"
      },
      {
-      "name": "documentoPasajero",
+      "name": "correoPasajero",
       "in": "path",
       "required": true,
       "type": "string"
@@ -86,7 +86,7 @@
     }
    }
   },
-  "/reservas/v1/eliminarReserva/{IdRuta}/{DocPasajero}": {
+  "/reservas/v1/eliminarReserva/{IdRuta}": {
    "delete": {
     "operationId": "ReservasEliminarReserva",
     "parameters": [
@@ -97,15 +97,20 @@
       "type": "string"
      },
      {
-      "name": "DocPasajero",
-      "in": "path",
-      "required": true,
-      "type": "string"
+      "in": "body",
+      "name": "body",
+      "required": false,
+      "schema": {
+       "$ref": "#/definitions/Aleatorio"
+      }
      }
     ],
     "responses": {
      "200": {
-      "description": "A successful response"
+      "description": "A successful response",
+      "schema": {
+       "$ref": "#/definitions/Reserva"
+      }
      }
     }
    }
@@ -137,24 +142,30 @@
     }
    }
   },
-  "/reservas/v1/modificarReserva/{nombreReserva}/{IDRutaReservada}/{documentoPasajero}": {
-   "post": {
+  "/reservas/v1/modificarReserva/{nombreReservaModificar}/{nuevoNombre}/{NuevaIDRuta}/{correoPasajero}": {
+   "put": {
     "operationId": "ReservasModificarReserva",
     "parameters": [
      {
-      "name": "nombreReserva",
+      "name": "nombreReservaModificar",
       "in": "path",
       "required": true,
       "type": "string"
      },
      {
-      "name": "IDRutaReservada",
+      "name": "nuevoNombre",
       "in": "path",
       "required": true,
       "type": "string"
      },
      {
-      "name": "documentoPasajero",
+      "name": "NuevaIDRuta",
+      "in": "path",
+      "required": true,
+      "type": "string"
+     },
+     {
+      "name": "correoPasajero",
       "in": "path",
       "required": true,
       "type": "string"
