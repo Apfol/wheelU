@@ -104,9 +104,15 @@ public class YourFirstAPI {
 		return reserva;		
 	}
 	@ApiMethod(name = "eliminar_reserva", httpMethod = ApiMethod.HttpMethod.DELETE)
-	public void eliminarReserva(@Named("IdRuta") String idRuta,@Named("correoPasajero") String coPasa) throws ServiceException {
-		
-		facade.eliminarReserva(idRuta, coPasa);
+	public Reserva eliminarReserva(@Named("IdRuta") String idRuta, Aleatorio aleatorio) throws ForbiddenException, NotFoundException {
+		if (!facade.isSesion(aleatorio, aleatorio.getCorreo())) {
+			throw new ForbiddenException("Invalid credentials");
+		}
+		Reserva res =  facade.eliminarReserva(idRuta, aleatorio.getCorreo());
+		if (res == null) {
+			throw new NotFoundException("Reserva no encontradas");
+		}
+		return res;
 	}
 	
 	@ApiMethod(name = "obtener_usuario")

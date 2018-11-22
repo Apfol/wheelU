@@ -45,17 +45,20 @@ public class Facade implements IProxy {
 		return usu;
 	}
 	
-	public void eliminarReserva(String idRuta, String coPas) {
+	public Reserva eliminarReserva(String idRuta, String emailPas) {
+		Reserva resEl = null;
 		for (Reserva reserva : reservas) {
 			if(reserva.getIDRutaReservada().equals(idRuta)) {
 				for(Usuario us: usuarios) {
-					if(us.getCorreo().equals(coPas)) {
+					if(us.getCorreo().equals(emailPas)) {
+						resEl = reserva;
 						reservas.remove(reserva);
 						break;
 					}
 				}
 			}
 		}
+		return resEl;
 	}
 	
 	public void addReserva(Reserva res) {
