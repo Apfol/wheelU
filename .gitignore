@@ -9,3 +9,5 @@ target/wheelU-1.0-SNAPSHOT.war
 target/appengine-staging/WEB-INF/classes/com/reservas/wheelU/EchoEndpointModule.class
 *.class
 target/wheelU-1.0-SNAPSHOT/WEB-INF/classes/com/reservas/wheelU/EchoEndpointModule.class
+target/m2e-wtp/web-resources/META-INF/maven/com.reservas.wheelU/wheelU/pom.xml
+target/m2e-wtp/web-resources/META-INF/maven/com.reservas.wheelU/wheelU/pom.properties
