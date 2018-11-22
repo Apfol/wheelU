@@ -86,23 +86,15 @@
     }
    }
   },
-  "/reservas/v1/eliminarReserva/{IdRuta}": {
-   "delete": {
-    "operationId": "ReservasEliminarReserva",
-    "parameters": [
-     {
       "name": "IdRuta",
-      "in": "path",
       "required": true,
       "type": "string"
      },
      {
-      "in": "body",
-      "name": "body",
-      "required": false,
-      "schema": {
-       "$ref": "#/definitions/Aleatorio"
-      }
+      "name": "correoPasajero",
+      "in": "path",
+      "required": true,
+      "type": "string"
      }
     ],
     "responses": {

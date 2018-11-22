@@ -5,6 +5,9 @@ derived_file_type:
 - java_precompiled
 threadsafe: True
 auto_id_policy: default
+env_variables:
+  'ENDPOINTS_SERVICE_VERSION': '2018-11-22r0'
+  'ENDPOINTS_SERVICE_NAME': 'wheel-u-reservas.appspot.com'
 api_version: '1.0'
 handlers:
 - url: /
